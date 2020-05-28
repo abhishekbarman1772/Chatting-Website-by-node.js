@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<title>
+kusar pusar
+</title>
+<body>
+<form class="col s12" action="/login" method ="POST" name="login" >
+<div class="parallax-container">
+        <div class="parallax"><img src="/parallax1.jpg" style="opacity: 1;"></div>
+      </div>
+      <div class="row">
+        <div class="input-field col s3">
+          <input type="email" name="email" id="email" oninvalid="alert('You must fill out the Email-id');" placeholder="Email-id" required> 
+        <label for="firstname">Email-id</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s3">
+          <input type="Password" name="password" id="password" oninvalid="alert('You must fill out the password');" placeholder="password" required> 
+        <label for="firstname">Password</label>
+        </div>
+      </div>
+
+        <div class="row" Align="center">
+          <button class="btn waves-effect waves-light" type="submit" name="action" value="login">
+          <i class="material-icons right">send</i>
+          </button>
+          </div>
+<div class="parallax-container">
+        <div class="parallax"><img src="/parallax1.jpg" style="opacity: 1;"></div>
+      </div>
+</form>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+<script type="text/javascript" src="/js/materialize.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('.parallax').parallax();
+  });
+</script>
+</body>
+</html>
