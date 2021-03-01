@@ -22,10 +22,59 @@ app.use(bodyParser.urlencoded({
     extended: true
 })); 
 var urlencodedParser = bodyParser.urlencoded({extended:false});
-app.get("/", (req, res) => {
+app.get("/loginfile", (req, res) => {
     res.sendFile(__dirname + "/b.html");
    
 });
+
+app.get('/register', function(req,res){
+  res.sendFile(__dirname+'/a.html');
+})
+
+
+app.post('/sign_up', function(req,res){ 
+    var first= req.body.firstname; 
+   
+       var last = req.body.lastname; 
+   
+       var email = req.body.email; 
+   
+       var pass = req.body.password; 
+   
+       var gend=req.body.gender;
+   
+       var add=req.body.address;
+   
+       var phone=req.body.number;
+        
+       var data = { 
+           Firstname: first, 
+       
+           Lastname:last,
+   
+           Email: email, 
+       
+           Password:pass,
+   
+           Gender:gend,
+   
+           Phone:phone,
+            
+           Address:add
+       } 
+       MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("users");
+        dbo.collection("details").insertOne(data, function(err, res) {
+          if (err) throw err;
+          console.log("1 document inserted");
+          
+          db.close();
+          
+        });
+        res.sendFile(__dirname+'/registered.html');
+      });
+    }) ;
 
 app.post('/login',function(req,res){    
 email =req.body.email;

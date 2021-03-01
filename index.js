@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({
 
 app.get('/', function(req,res){
   res.sendFile(__dirname+'/a.html');
-}).listen(3000) 
+})
 
 
 app.post('/sign_up', function(req,res){ 
